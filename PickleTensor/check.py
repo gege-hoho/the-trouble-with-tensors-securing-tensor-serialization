@@ -12,7 +12,8 @@ evil_pickle = pickled_bomb + good_pickle
 with open("evil_pickle.pt","wb") as f:
     f.write(evil_pickle)
 # let's load the evil pickle
-result_tensor = torch.load("evil_pickle.pt", weights_only=True)
+result_tensor = torch.load("evil_pickle.pt", weights_only=False)
+# result_tensor = torch.load("evil_pickle.pt", weights_only=True)
 assert all(tensor == result_tensor)
 
 

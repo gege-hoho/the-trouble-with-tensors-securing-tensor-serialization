@@ -50,7 +50,7 @@ tensor = torch.tensor([1, 2, 3, 4, 5])
 torch.save(tensor, 'tensor.pt')
 
 
-loaded_tensor = torch.load('tensor.pt')
+loaded_tensor = torch.load('tensor.pt', weights_only=False)
 assert loaded_tensor == tensor
 
 ```
@@ -150,7 +150,7 @@ evil_pickle = pickled_bomb + good_pickle
 with open("evil_pickle.pt","wb") as f:
     f.write(evil_pickle)
 
-result_tensor = torch.load("evil_pickle.pt")
+result_tensor = torch.load("evil_pickle.pt", weights_only=False)
 assert all(tensor == result_tensor)
 ```
 
